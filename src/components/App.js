@@ -1,12 +1,24 @@
 
-import React from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
+  const [name, setName] = useState('');
+
+  const handleNameChange = (event) => {
+      setName(event.target.value);
+    };
+
+  return(
+      <div>
+          <p>Enter your name:</p>
+
+          <input type='text' name='name' onChange={handleNameChange}/>
+
+          {name && (
+              <p>Hello, {name}!</p>
+          )}
+      </div>
   )
 }
 
